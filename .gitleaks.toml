@@ -1,0 +1,14 @@
+title = "mtorun0x7cd repository secret-scan policy"
+
+# Baseline: gitleaks' default rule set.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Documented placeholders and disclosed educational demo credentials in archived coursework (see each repo's SECURITY.md)."
+regexTarget = "match"
+regexes = [
+  '''<[a-z0-9._-]*(password|secret|key|token|username)[a-z0-9._-]*>''',
+  '''wawipassword''',
+  '''admin/admin''',
+]
