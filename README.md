@@ -2,9 +2,9 @@
   <img src="docs/social_preview.svg?v=5" alt="Mert Torun, M.Sc. — IT Security Architect & Systems Engineer" />
 </p>
 
-# Mert Torun, M.Sc.
+# Mert Torun, M.Sc. <!-- markdownlint-disable-line MD026 -->
 
-### IT Security Architect & Systems Engineer
+## IT Security Architect & Systems Engineer
 
 <p align="center">
   <img src="https://img.shields.io/badge/Safety--Critical_Systems-418cff?style=for-the-badge" alt="Safety-Critical Systems" />
@@ -43,14 +43,17 @@ If you find my work or research valuable, you can support it:
     <br>
 
     **Bitcoin (BTC)**:
+
     ```text
     1JayXfpV9a3UxjUGVF3n6diD3MnBugnir9
     ```
 
     **Monero (XMR)**:
+
     ```text
     4Aax3jcKTpiaiyx6FY86Xf28stUJqLuYCSkw6495GBVg6RevS3a9SYiC1uiVjpEZNC2UCvNWNrhwJUbK5NVkPSo913ZBv6Xi
     ```
+
     </details>
 
 ---
