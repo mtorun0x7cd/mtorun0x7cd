@@ -1,0 +1,8 @@
+{
+  // Repository Markdown house style (mirrors the author's global markdownlint config).
+  "default": true,
+  "MD013": false,
+  "MD033": false,
+  "MD041": false,
+  "MD024": { "siblings_only": true }
+}
