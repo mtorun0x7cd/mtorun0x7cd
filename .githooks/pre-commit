@@ -1,0 +1,13 @@
+#!/bin/sh
+# Scan staged changes for secrets before each commit.
+# Enable in a clone with:  git config core.hooksPath .githooks
+# Requires gitleaks (https://github.com/gitleaks/gitleaks).
+
+if command -v gitleaks >/dev/null 2>&1; then
+    gitleaks protect --staged --redact --no-banner || {
+        echo "gitleaks: staged changes contain a potential secret; commit aborted." >&2
+        exit 1
+    }
+else
+    echo "gitleaks not installed; skipping secret scan." >&2
+fi
