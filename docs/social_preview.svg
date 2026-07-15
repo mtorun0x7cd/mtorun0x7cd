@@ -18,10 +18,10 @@
         @media (prefers-color-scheme: dark) {
             :root {
                 --text-title: #ffffff;
-                --text-subtitle: #a0aec0;
-                --text-badge: #718096;
-                --accent-color: #2563EB;
-                --badge-border: #2C3E50;
+                --text-subtitle: #94a3b8;
+                --text-badge: #64748b;
+                --accent-color: #60A5FA;
+                --badge-border: #334155;
                 --glow-opacity: 0.25;
             }
         }
