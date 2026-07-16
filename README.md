@@ -27,8 +27,9 @@ The repositories below span active research and MIT-licensed archives of complet
 
 ## Selected Repositories
 
-- **[FEntwumS.ContainerExtension](https://github.com/FEntwumS/FEntwumS.ContainerExtension)** — OneWare Studio plugin routing FPGA/EDA toolchains (GHDL, Yosys, nextpnr, Verilator, Icarus Verilog) through ephemeral Docker/Podman containers with a native-host fallback and pinned-image reproducibility; my M.Sc. thesis contribution to the FEntwumS project (active research).
 - **[anti-skid-verification](https://github.com/mtorun0x7cd/anti-skid-verification)** — two-layer functional-equivalence verification for safety-critical FPGA rail retrofits (IEC 61508 / IEEE 1012); active research, paper forthcoming.
+- **[thesis-fentwums-container-extension](https://github.com/mtorun0x7cd/thesis-fentwums-container-extension)** — M.Sc. thesis: the report and the cross-platform evaluation apparatus for the container extension below, benchmarking synthesis, place-and-route and simulation across iCE40 and ECP5 with the upstream sources pinned as submodules.
+- **[FEntwumS.ContainerExtension](https://github.com/FEntwumS/FEntwumS.ContainerExtension)** — OneWare Studio plugin routing FPGA/EDA toolchains (GHDL, Yosys, nextpnr, Verilator, Icarus Verilog) through ephemeral Docker/Podman containers with a native-host fallback and pinned-image reproducibility; the extension the thesis evaluates, contributed to the FEntwumS project (active research).
 - **[coupon-management](https://github.com/mtorun0x7cd/coupon-management)** — Django platform with polyglot persistence and a reproducible PostgreSQL/MongoDB benchmark.
 - **[nao-ball-pickup](https://github.com/mtorun0x7cd/nao-ball-pickup)** — vision-guided ball detection and pickup for the SoftBank NAO 6 humanoid.
 - **[raven-one-simulink](https://github.com/mtorun0x7cd/raven-one-simulink)** — educational RSA and MD5 simulator exposing every intermediate computation (RFC 8017 / RFC 1321).
