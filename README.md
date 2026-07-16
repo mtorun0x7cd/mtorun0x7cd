@@ -21,15 +21,16 @@ I am an IT Security Architect & Systems Engineer holding an M.Sc. in Computer Sc
 
 A second commitment runs through this work: that engineering claims should be reproducible and independently checkable. I operate self-hosted, privacy-respecting infrastructure end to end, cryptographically sign my commits, release tags, e-mail and the documents I issue, and maintain a public portal through which the authenticity of signed documents can be verified by anyone. I treat reproducibility as a property of the engineering itself, not a courtesy added afterward, and self-hosting as a methodological consequence rather than a preference: the provenance and integrity of an artifact are only as trustworthy as the chain that produced and serves it, and assertions of correctness or provenance carry weight only insofar as a third party can confirm them.
 
-The repositories below span active research and MIT-licensed archives of completed academic and engineering work — embedded systems, web platforms, robotics, and cryptographic education. The archived projects are preserved as records rather than maintained as living tools, documented so that their methods and results remain legible after the work has closed; the active repositories accompany research still in progress.
+The repositories below are the public work under this account, together with the upstream extension I contribute to: research still in progress, the conventions the other projects are built to, and MIT-licensed archives of completed academic and engineering work — embedded systems, web platforms, robotics, and cryptographic education. The archived projects are preserved as records rather than maintained as living tools, documented so that their methods and results remain legible after the work has closed.
 
 ---
 
-## Selected Repositories
+## Repositories
 
 - **[anti-skid-verification](https://github.com/mtorun0x7cd/anti-skid-verification)** — two-layer functional-equivalence verification for safety-critical FPGA rail retrofits (IEC 61508 / IEEE 1012); active research, paper forthcoming.
 - **[thesis-fentwums-container-extension](https://github.com/mtorun0x7cd/thesis-fentwums-container-extension)** — M.Sc. thesis: the report and the cross-platform evaluation apparatus for the container extension below, benchmarking synthesis, place-and-route and simulation across iCE40 and ECP5 with the upstream sources pinned as submodules.
 - **[FEntwumS.ContainerExtension](https://github.com/FEntwumS/FEntwumS.ContainerExtension)** — OneWare Studio plugin routing FPGA/EDA toolchains (GHDL, Yosys, nextpnr, Verilator, Icarus Verilog) through ephemeral Docker/Podman containers with a native-host fallback and pinned-image reproducibility; the extension the thesis evaluates, contributed to the FEntwumS project (active research).
+- **[template](https://github.com/mtorun0x7cd/template)** — the project template the repositories here are built to: the meta-file family, authorship standard, and build, release and signing conventions.
 - **[component-lending-system](https://github.com/mtorun0x7cd/component-lending-system)** — PHP/MySQL lending platform for an embedded-systems lab, with tiered role-based access and stock recalculated by schema triggers.
 - **[coupon-management](https://github.com/mtorun0x7cd/coupon-management)** — Django platform with polyglot persistence and a reproducible PostgreSQL/MongoDB benchmark.
 - **[nao-ball-pickup](https://github.com/mtorun0x7cd/nao-ball-pickup)** — vision-guided ball detection and pickup for the SoftBank NAO 6 humanoid.
