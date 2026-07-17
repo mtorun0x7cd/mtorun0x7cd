@@ -34,7 +34,7 @@ The repositories below are the public work under this account, together with the
 - **[component-lending-system](https://github.com/mtorun0x7cd/component-lending-system)** — PHP/MySQL lending platform for an embedded-systems lab, with tiered role-based access and stock recalculated by schema triggers.
 - **[coupon-management](https://github.com/mtorun0x7cd/coupon-management)** — Django platform run against two storage engines, with a reproducible PostgreSQL/MongoDB benchmark.
 - **[nao-ball-pickup](https://github.com/mtorun0x7cd/nao-ball-pickup)** — vision-guided ball detection and head tracking, with a fixed-pose pickup motion, for the SoftBank NAO 6 humanoid.
-- **[raven-one-simulink](https://github.com/mtorun0x7cd/raven-one-simulink)** — educational RSA and MD5 simulator exposing every intermediate computation (RFC 8017 / RFC 1321).
+- **[raven-one-simulink](https://github.com/mtorun0x7cd/raven-one-simulink)** — educational cryptographic simulator tracing every RSA intermediate step, with a from-scratch MD5 engine (RFC 8017 / RFC 1321).
 - **[warehouse-management-system](https://github.com/mtorun0x7cd/warehouse-management-system)** — multi-tier Java Swing warehouse client over JPA/MySQL.
 
 ---
