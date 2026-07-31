@@ -8,7 +8,7 @@
 
 # Mert Torun, M.Sc. <!-- markdownlint-disable-line MD026 -->
 
-## IT Security Architect · Systems Engineer
+**IT Security Architect · Systems Engineer** <!-- markdownlint-disable-line MD036 -->
 
 <p align="center">
   <img src="https://img.shields.io/badge/Safety--Critical_Systems-2563eb?style=for-the-badge" alt="Safety-Critical Systems" />
@@ -17,7 +17,7 @@
   <img src="https://img.shields.io/badge/Cryptography-2563eb?style=for-the-badge" alt="Cryptography" />
 </p>
 
-I am an IT Security Architect & Systems Engineer holding an M.Sc. in Computer Science & Engineering from TH Köln. My work concerns the conditions under which a system can be trusted: the verification and validation of safety-critical systems, the hardening of enterprise infrastructure, and the construction of cryptographic architectures that establish the integrity and authenticity of digital artifacts. I read these problems through the established assurance literature — functional-safety, software-verification, and security-evaluation standards — and treat their methods as a shared vocabulary rather than a checklist. The orienting question across these domains is the same: under what conditions can a system's claimed properties be demonstrated rather than asserted.
+I am an IT Security Architect & Systems Engineer holding an M.Sc. in Computer Science & Engineering from TH Köln. My work concerns the conditions under which a system can be trusted: the verification and validation of safety-critical systems, the hardening of enterprise infrastructure, and the construction of cryptographic architectures that establish the integrity and authenticity of digital artifacts. I read these problems through the established assurance literature — functional-safety, software-verification, and security-evaluation standards — and treat their methods as a shared vocabulary rather than a checklist. The orienting question across these domains is the same: under what conditions a system's claimed properties can be demonstrated rather than asserted.
 
 A second commitment runs through this work: that engineering claims should be reproducible and independently checkable. I operate self-hosted, privacy-respecting infrastructure end to end, cryptographically sign the commits and tags in the repositories under this account, my e-mail and the documents I issue, and maintain a public portal through which the authenticity of signed documents can be verified by anyone. I treat reproducibility as a property of the engineering itself, not a courtesy added afterward, and self-hosting as a methodological consequence rather than a preference: the provenance and integrity of an artifact are only as trustworthy as the chain that produced and serves it, and assertions of correctness or provenance carry weight only insofar as a third party can confirm them.
 
@@ -45,7 +45,7 @@ The documents I issue, my e-mail, and the commits and tags in the repositories u
 
 **Documents & e-mail** — official PDF documents and e-mail are signed with an S/MIME certificate. A document signature is detached CMS (RFC 5652): it travels beside the document as `DOCUMENT.p7s`, never inside it, so a PDF reader shows no signature and none is expected. Checked offline with `openssl cms -verify -binary -content DOCUMENT -in DOCUMENT.p7s -purpose smimesign -CAfile chain.pem`.
 
-- **Verify**: check a signature in real time at [mtorun0x7cd.com/verify](https://mtorun0x7cd.com/verify), or download the public [S/MIME certificate](https://mtorun0x7cd.com/assets/certs/smime.cer) and [key policy](https://mtorun0x7cd.com/legal#smime).
+- **Verify** — check a signature in real time at [mtorun0x7cd.com/verify](https://mtorun0x7cd.com/verify), or download the public [S/MIME certificate](https://mtorun0x7cd.com/assets/certs/smime.cer) and [key policy](https://mtorun0x7cd.com/legal#smime).
 - **Certificate fingerprint** — confirm the certificate for `info@mtorun0x7cd.com` (issued by D-Trust SBR CA 1-22-1 2022) against its SHA-256 fingerprint before trusting it:
 
     ```text
@@ -64,11 +64,11 @@ The documents I issue, my e-mail, and the commits and tags in the repositories u
 
 ## Support & Sponsorship
 
-If you find my work or research valuable, you can support it:
+If you find my work valuable, you can support it:
 
-- **Sponsor on GitHub**: Support me via [GitHub Sponsors](https://github.com/sponsors/mtorun0x7cd).
-- **Buy Me a Coffee**: Send a one-time or monthly contribution via [Buy Me a Coffee](https://buymeacoffee.com/mtorun0x7cd).
-- **Cryptocurrency Donations**:
+- **[GitHub Sponsors](https://github.com/sponsors/mtorun0x7cd)**: recurring support.
+- **[Buy Me a Coffee](https://buymeacoffee.com/mtorun0x7cd)**: one-time or monthly contribution.
+- **Cryptocurrency**:
     <details>
     <summary>View Bitcoin (BTC) &amp; Monero (XMR) Addresses</summary>
     <br>
@@ -95,7 +95,7 @@ If you find my work or research valuable, you can support it:
 **Mert Torun, M.Sc.** — IT Security Architect · Systems Engineer  
 mtorun0x7cd · Research & Development
 
-- **Email**: [info@mtorun0x7cd.com](mailto:info@mtorun0x7cd.com)
+- **E-mail**: [info@mtorun0x7cd.com](mailto:info@mtorun0x7cd.com)
 - **Website**: [mtorun0x7cd.com](https://mtorun0x7cd.com)
 - **LinkedIn**: [linkedin.com/in/mtorun0x7cd](https://www.linkedin.com/in/mtorun0x7cd)
 - **GitHub**: [github.com/mtorun0x7cd](https://github.com/mtorun0x7cd)
