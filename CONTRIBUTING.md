@@ -1,7 +1,6 @@
 # Contributing
 
-This repository backs my GitHub profile page. It is not a software project and
-does not accept feature contributions.
+This repository backs my GitHub profile page. It is not a software project, is not a citable artifact, and does not accept feature contributions; the citable work lives in the repositories the profile indexes.
 
 ## Reporting
 
