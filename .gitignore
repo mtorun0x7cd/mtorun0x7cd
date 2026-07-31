@@ -1,24 +1,14 @@
-# macOS
+# Build artifacts are isolated under .tmp.nosync/ (the .nosync suffix keeps iCloud
+# from syncing them) and are never committed.
+.tmp.nosync/
+*.nosync
+
+# OS files
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Windows
+._*
 Thumbs.db
-Ehthumbs.db
-desktop.ini
 
-# IDE/Editor
-.vscode/
+# Editors
 .idea/
-*.suo
-*.sln
-.classpath
-.project
-.settings/
-
-# Env/Tmp
-venv/
-.venv/
-env/
-.tmp.nosync
+.vscode/
+*.swp
