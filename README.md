@@ -66,7 +66,7 @@ The documents I issue, my e-mail, and the commits and tags in the repositories u
 
 If you find my work valuable, you can support it:
 
-- **[GitHub Sponsors](https://github.com/sponsors/mtorun0x7cd)**: recurring support.
+- **[GitHub Sponsors](https://github.com/sponsors/mtorun0x7cd)**: recurring or one-time support.
 - **[Buy Me a Coffee](https://buymeacoffee.com/mtorun0x7cd)**: one-time or monthly contribution.
 - **Cryptocurrency**:
     <details>
