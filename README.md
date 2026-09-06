@@ -2,13 +2,13 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/social_preview_dark.png" />
     <source media="(prefers-color-scheme: light)" srcset="docs/social_preview_light.png" />
-    <img src="docs/social_preview_light.png" alt="Mert Torun, M.Sc. — IT Security Architect · Systems Engineer" width="880" />
+    <img src="docs/social_preview_light.png" alt="Mert Torun, M.Sc. — Verification of Safety-Critical Systems · Information Security" width="880" />
   </picture>
 </p>
 
 # Mert Torun, M.Sc. <!-- markdownlint-disable-line MD026 -->
 
-**IT Security Architect · Systems Engineer** <!-- markdownlint-disable-line MD036 -->
+**Verification of Safety-Critical Systems · Information Security** <!-- markdownlint-disable-line MD036 -->
 
 <p align="center">
   <img src="https://img.shields.io/badge/Safety--Critical_Systems-2563eb?style=for-the-badge" alt="Safety-Critical Systems" />
@@ -17,7 +17,7 @@
   <img src="https://img.shields.io/badge/Cryptography-2563eb?style=for-the-badge" alt="Cryptography" />
 </p>
 
-I am an IT Security Architect & Systems Engineer holding an M.Sc. in Computer Science & Engineering from TH Köln. My work concerns the conditions under which a system can be trusted: the verification and validation of safety-critical systems, the hardening of enterprise infrastructure, and the construction of cryptographic architectures that establish the integrity and authenticity of digital artifacts. I read these problems through the established assurance literature — functional-safety, software-verification, and security-evaluation standards — and treat their methods as a shared vocabulary rather than a checklist. The orienting question across these domains is the same: under what conditions a system's claimed properties can be demonstrated rather than asserted.
+My work concerns the conditions under which a system can be trusted: the verification and validation of safety-critical systems, the hardening of enterprise infrastructure, and the construction of cryptographic architectures that establish the integrity and authenticity of digital artifacts. I hold an M.Sc. in Computer Science & Engineering from TH Köln and read these problems through the established assurance literature — functional-safety, software-verification, and security-evaluation standards — treating their methods as a shared vocabulary rather than a checklist. The orienting question across these domains is the same: under what conditions a system's claimed properties can be demonstrated rather than asserted.
 
 A second commitment runs through this work: that engineering claims should be reproducible and independently checkable. I operate self-hosted, privacy-respecting infrastructure end to end, cryptographically sign the commits and tags in the repositories under this account, my e-mail and the documents I issue, and maintain a public portal through which the authenticity of signed documents can be verified by anyone. I treat reproducibility as a property of the engineering itself, not a courtesy added afterward, and self-hosting as a methodological consequence rather than a preference: the provenance and integrity of an artifact are only as trustworthy as the chain that produced and serves it, and assertions of correctness or provenance carry weight only insofar as a third party can confirm them.
 
@@ -92,7 +92,7 @@ If you find my work valuable, you can support it:
 
 ## Contact
 
-**Mert Torun, M.Sc.** — IT Security Architect · Systems Engineer  
+**Mert Torun, M.Sc.** — Verification of Safety-Critical Systems · Information Security  
 mtorun0x7cd · Research & Development
 
 - **E-mail**: [info@mtorun0x7cd.com](mailto:info@mtorun0x7cd.com)
