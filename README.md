@@ -19,7 +19,7 @@
 
 My work concerns the conditions under which a system can be trusted: the verification and validation of safety-critical systems, the hardening of enterprise infrastructure, and the construction of cryptographic architectures that establish the integrity and authenticity of digital artifacts. I hold an M.Sc. in Computer Science & Engineering from TH Köln and read these problems through the established assurance literature — functional-safety, software-verification, and security-evaluation standards — treating their methods as a shared vocabulary rather than a checklist. The orienting question across these domains is the same: under what conditions a system's claimed properties can be demonstrated rather than asserted.
 
-A second commitment runs through this work: that engineering claims should be reproducible and independently checkable. I operate self-hosted, privacy-respecting infrastructure end to end, cryptographically sign the commits and tags in the repositories under this account, my e-mail and the documents I issue, and am building a public portal through which the authenticity of signed documents will be verifiable by anyone. I treat reproducibility as a property of the engineering itself, not a courtesy added afterward, and self-hosting as a methodological consequence rather than a preference: the provenance and integrity of an artifact are only as trustworthy as the chain that produced and serves it, and assertions of correctness or provenance carry weight only insofar as a third party can confirm them.
+A second commitment runs through this work: that engineering claims should be reproducible and independently checkable. I operate self-hosted, privacy-respecting infrastructure end to end, cryptographically sign the commits and tags in the repositories under this account, my email and the documents I issue, and am building a public portal through which the authenticity of signed documents will be verifiable by anyone. I treat reproducibility as a property of the engineering itself, and self-hosting as its consequence: the provenance and integrity of an artifact are only as trustworthy as the chain that produced and serves it.
 
 The repositories below are work under this account, together with the upstream extension I contribute to: research still in progress, the conventions the other projects are built to, and MIT-licensed archives of completed academic and engineering work — web platforms, an enterprise desktop application, humanoid robotics, and cryptographic education. The archived projects are preserved as records rather than maintained as living tools, documented so that their methods and results remain legible after the work has closed.
 
@@ -41,9 +41,9 @@ The repositories below are work under this account, together with the upstream e
 
 ## Cryptographic Verification & Security
 
-The documents I issue, my e-mail, and the commits and tags in the repositories under this account are cryptographically signed, so their authenticity, integrity, and origin can be demonstrated rather than asserted. Two independent mechanisms are used, each verifiable on its own.
+The documents I issue, my email, and the commits and tags in the repositories under this account are cryptographically signed, so a recipient can check their integrity and authenticity. Two independent mechanisms are used, each verifiable on its own.
 
-**Documents & e-mail** — official PDF documents and e-mail are signed with an S/MIME certificate. A document signature is detached CMS (RFC 5652): it travels beside the document as `DOCUMENT.p7s`, never inside it, so a PDF reader shows no signature and none is expected. Checked offline with `openssl cms -verify -binary -inform DER -content DOCUMENT -in DOCUMENT.p7s -purpose smimesign -CAfile chain.pem`.
+**Documents & email** — official PDF documents and email are signed with an S/MIME certificate. A document signature is detached CMS (RFC 5652): it travels beside the document as `DOCUMENT.p7s`, never inside it, so a PDF reader shows no signature and none is expected. Checked offline with `openssl cms -verify -binary -inform DER -content DOCUMENT -in DOCUMENT.p7s -purpose smimesign -CAfile chain.pem`.
 
 - **Verify** — the signature portal at [mtorun0x7cd.com/verify](https://mtorun0x7cd.com/verify) is not published yet; until it is, verify offline with the command above, or download the public [S/MIME certificate](https://mtorun0x7cd.com/assets/certs/smime.cer) and [key policy](https://mtorun0x7cd.com/legal#smime).
 - **Certificate fingerprint** — confirm the certificate for `info@mtorun0x7cd.com` (issued by D-Trust SBR CA 1-22-1 2022) against its SHA-256 fingerprint before trusting it:
@@ -86,7 +86,7 @@ If you find my work valuable, you can support it:
     ```
 
     </details>
-- **Support Portal**: For more details, visit [mtorun0x7cd.com/support](https://mtorun0x7cd.com/support).
+- **Support Portal**: [mtorun0x7cd.com/support](https://mtorun0x7cd.com/support) will gather every channel in one place; it is not published yet.
 
 ---
 
@@ -95,7 +95,7 @@ If you find my work valuable, you can support it:
 **Mert Torun, M.Sc.** — Verification of Safety-Critical Systems · Information Security  
 mtorun0x7cd · Research & Development
 
-- **E-mail**: [info@mtorun0x7cd.com](mailto:info@mtorun0x7cd.com)
+- **Email**: [info@mtorun0x7cd.com](mailto:info@mtorun0x7cd.com)
 - **Website**: [mtorun0x7cd.com](https://mtorun0x7cd.com)
 - **LinkedIn**: [linkedin.com/in/mtorun0x7cd](https://www.linkedin.com/in/mtorun0x7cd)
 - **GitHub**: [github.com/mtorun0x7cd](https://github.com/mtorun0x7cd)
