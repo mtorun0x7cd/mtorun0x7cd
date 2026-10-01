@@ -10,4 +10,4 @@ This repository backs my GitHub profile page. It is not a software project, is n
 
 ## Contact
 
-Mert Torun, M.Sc. — <info@mtorun0x7cd.com> · <https://mtorun0x7cd.com>
+Mert Torun, M.Sc. · <info@mtorun0x7cd.com> · <https://mtorun0x7cd.com>
