@@ -84,13 +84,13 @@ If you find my work valuable, you can support it:
     **Bitcoin (BTC)**:
 
     ```text
-    1JayXfpV9a3UxjUGVF3n6diD3MnBugnir9
+    bc1qysjvx7h5dcrxvrzj6mpdrccs0qmescrkqrgzsm
     ```
 
     **Monero (XMR)**:
 
     ```text
-    48rsHksR1PH2wBb8GChnBbdNXDMUVKb2S2jsgKyVoKJx7TAwJaTTcxHbSDePyBFyEPAxxW9YZA6j5HxEEkjn4e6KN85KUM3
+    4397wSjVyk5C7LR2BB3xLUQZeE8M1UBEJhSZ9KRCryFU7HDBZXnSQZHeK4fTUL8FhFXF9cLcTrg9GiY5agqSF7DKKEj8bcP
     ```
 
     </details>
