@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2026 Mert Torun
+# SPDX-License-Identifier: MIT
+#
 # Reproduce this repository's social-preview images from docs/social_preview.svg.
 #
 # The master SVG is theme-adaptive through prefers-color-scheme, but GitHub picks
 # a README image by *its* page theme (via <picture>), not by the SVG's internal
-# media query — and an <img>-loaded SVG follows the OS scheme, so one file cannot
+# media query, and an <img>-loaded SVG follows the OS scheme, so one file cannot
 # serve both themes without the title vanishing on a mismatched canvas. We flatten
 # the master into palette-deterministic light/dark variants and rasterise each with
 # headless Chrome, the only local engine that resolves CSS custom properties and
@@ -42,7 +45,7 @@ writeFileSync(process.env.LIGHT, src.replace(mediaRe, ''));
 writeFileSync(process.env.DARK, src.replace(/:root \{[\s\S]*?\}/, () => m[1]).replace(mediaRe, ''));
 NODE
 
-render() { # <in.svg> <out.png>  — 2x, transparent
+render() { # <in.svg> <out.png>; 2x, transparent
     "$chrome" --headless=new --disable-gpu --hide-scrollbars \
         --force-device-scale-factor=2 --window-size=1200,630 \
         --default-background-color=00000000 \
