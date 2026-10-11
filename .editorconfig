@@ -13,6 +13,3 @@ indent_size = 2
 
 [*.md]
 trim_trailing_whitespace = false
-
-# Add language-specific rules to match the project (e.g. tabs for Makefiles,
-# latin1 for Java .properties bundles). Remove rules for languages not present.
