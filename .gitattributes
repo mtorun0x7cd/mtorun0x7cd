@@ -11,3 +11,7 @@
 
 # Binary assets.
 *.png  binary
+
+# The opt-in hook is tooling, not the content of this repository, so it is left
+# out of the language statistics.
+.githooks/pre-commit -linguist-detectable
