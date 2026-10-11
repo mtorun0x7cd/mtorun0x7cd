@@ -6,7 +6,8 @@ This repository backs my GitHub profile page. It is not a software project, is n
 
 - **Security or integrity issues:** follow [`SECURITY.md`](SECURITY.md).
 - **Factual corrections** (a broken link, an out-of-date detail): contact
-  <info@mtorun0x7cd.com>. Issues are disabled on this repository.
+  <info@mtorun0x7cd.com>. Issues are disabled on this repository, and issue and
+  pull request templates are absent by design.
 
 ## Contact
 
