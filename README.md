@@ -30,12 +30,12 @@ The repositories below are work under this account, together with the upstream e
 
 - **[anti-skid-verification](https://github.com/mtorun0x7cd/anti-skid-verification)**: two-layer functional-equivalence verification for safety-critical FPGA rail retrofits; the repository of the paper listed under Publications.
 - **[thesis-fentwums-container-extension](https://github.com/mtorun0x7cd/thesis-fentwums-container-extension)**: the repository of the Master's thesis listed under Publications, with its LaTeX sources, the version of record and the cross-platform evaluation apparatus for the container extension below, benchmarking synthesis, place-and-route and simulation across iCE40 and ECP5 with the upstream sources pinned as submodules.
+- **[raven-one-simulink](https://github.com/mtorun0x7cd/raven-one-simulink)**: educational cryptographic simulator tracing every RSA intermediate step, with a from-scratch MD5 engine (RFC 8017 / RFC 1321); the practical part of the Bachelor's thesis listed under Publications.
 - **[FEntwumS.ContainerExtension](https://github.com/FEntwumS/FEntwumS.ContainerExtension)**: OneWare Studio plugin that runs FPGA toolchains such as GHDL, Yosys and nextpnr in containers (opt-in per tool, with a native-host fallback) and records the image digest of each run; the extension the Master's thesis evaluates, contributed to the FEntwumS project.
 - **[template](https://github.com/mtorun0x7cd/template)**: the project template the repositories here are built to, with the meta-file family, a tokenized README skeleton, and the CI, release and secret-scanning workflows.
 - **[component-lending-system](https://github.com/mtorun0x7cd/component-lending-system)**: PHP/MySQL lending platform for an embedded-systems lab, with tiered role-based access and stock recalculated by schema triggers.
 - **[coupon-management](https://github.com/mtorun0x7cd/coupon-management)**: Django platform run against two storage engines, with a reproducible PostgreSQL/MongoDB benchmark.
 - **[nao-ball-pickup](https://github.com/mtorun0x7cd/nao-ball-pickup)**: vision-guided ball detection and head tracking, with a fixed-pose pickup motion, for the SoftBank NAO 6 humanoid.
-- **[raven-one-simulink](https://github.com/mtorun0x7cd/raven-one-simulink)**: educational cryptographic simulator tracing every RSA intermediate step, with a from-scratch MD5 engine (RFC 8017 / RFC 1321); the practical part of the Bachelor's thesis listed under Publications.
 - **[warehouse-management-system](https://github.com/mtorun0x7cd/warehouse-management-system)**: multi-tier Java Swing warehouse client over JPA/MySQL.
 
 ---
