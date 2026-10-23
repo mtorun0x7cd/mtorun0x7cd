@@ -19,7 +19,7 @@ The workflows run their checks through `tools/check.sh`, which runs them locally
 tools/check.sh
 ```
 
-The banner and the badges under `docs/` are rendered from their sources by `docs/render.sh`, on macOS; the served SVGs and PNGs are committed with the source they were rendered from.
+The banner and the badges under `docs/` are rendered from their sources by `docs/render.sh`, on macOS; the served SVGs and PNGs are committed with the source they were rendered from. `tools/test-check.sh` breaks a copy of the repository in each of the ways the banner check must catch and ends with 0 only when it caught every one.
 
 The pre-commit hook scans the staged changes for secrets with the rules of `.gitleaks.toml`. Enable it once per clone; it requires the `gitleaks` command line tool:
 

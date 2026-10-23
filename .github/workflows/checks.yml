@@ -68,3 +68,6 @@ jobs:
       # needs macOS; this job checks what was committed.
       - name: Check that the banner and the badges are self-contained and their motion is bounded
         run: tools/check.sh banner
+
+      - name: Check that the banner check fails on each of its regression cases
+        run: tools/test-check.sh

@@ -14,10 +14,12 @@
 #                             file but README.md, which lists the template
 #                             among the repositories, names it
 #   tools/check.sh banner     the served banner and badges are self-contained,
-#                             every animation of the banner ends within five
-#                             seconds and rests under prefers-reduced-motion,
-#                             and the README describes the banner in the words
-#                             of its master (needs python3)
+#                             every animation of the master and of each served
+#                             banner ends within five seconds and rests under
+#                             prefers-reduced-motion, each served banner matches
+#                             its master, and the README describes the banner
+#                             in the words of its master (needs python3); its
+#                             regression cases are tools/test-check.sh
 #   tools/check.sh reuse      every file carries its licence and copyright, as
 #                             REUSE 3.3 defines it (needs reuse, or $REUSE)
 #   tools/check.sh secrets    gitleaks finds no secret in the history, with the
@@ -114,7 +116,9 @@ check_setup() {
 # as outlines and every colour as a literal. Their animation must end within
 # five seconds, the bound of WCAG 2.2 success criterion 2.2.2 for moving
 # content without a pause control, and stop under prefers-reduced-motion, where
-# each element shows its final state. The README's alternative text of the
+# each element shows its final state. This holds for each served file on its
+# own, since that is what GitHub shows, and each must carry the animated rules
+# and keyframes of the master unchanged. The README's alternative text of the
 # banner is the <title> of its master, word for word.
 check_banner() {
     if ! command -v "$PYTHON" >/dev/null 2>&1; then
@@ -200,49 +204,95 @@ for path in [*SERVED, *BADGES]:
         if needle in css:
             findings.append(f"{path}: the style sheet keeps {needle!r}")
 
-# Timing and reduced motion, read from the master: the served banners carry
-# its rules, which tools/check.sh compares below.
+# Timing and reduced motion, read from every banner: the master, and each
+# served file, which is what GitHub shows. Only longhands are read; the
+# shorthand, an !important, an animation property inside any other at-rule, an
+# animation in a style attribute and SMIL animation elements are findings,
+# because each would move the banner past what this check bounds.
+SMIL_TAGS = {"animate", "animateTransform", "animateMotion", "set", "discard"}
+
+
+def squeeze(text):
+    return re.sub(r"\s+", "", text).replace(";}", "}").rstrip(";")
+
+
+def timing(path):
+    """Animated selectors with their longhands, the selectors that rest under
+    prefers-reduced-motion, and the keyframes, each body squeezed."""
+    root = trees[path].getroot()
+    css = "".join(el.text or "" for el in root.iter(f"{SVG}style"))
+    for el in root.iter():
+        tag = el.tag.replace(SVG, "")
+        if tag in SMIL_TAGS:
+            findings.append(f"{path}: a SMIL <{tag}> element, whose motion this check does not bound")
+        if "animation" in el.get("style", ""):
+            findings.append(f"{path}: <{tag} style=...> sets an animation, which this check does not bound")
+    classes, resting, keyframes = {}, set(), {}
+    for prelude, body in blocks(css):
+        if prelude.startswith("@keyframes"):
+            keyframes[prelude.split(None, 1)[1].strip()] = squeeze(body)
+        elif prelude.startswith("@media") and "prefers-reduced-motion: reduce" in prelude:
+            for inner, inner_body in blocks(body):
+                decl = declarations(inner_body)
+                if decl.get("animation", "").split()[:1] == ["none"]:
+                    resting.update(s.strip() for s in inner.split(","))
+                if any(name.startswith("animation") and (name, value) != ("animation", "none") for name, value in decl.items()):
+                    findings.append(f"{path}: {inner} sets an animation under prefers-reduced-motion")
+        elif prelude.startswith("@"):
+            if "animation" in body:
+                findings.append(f"{path}: an animation inside {prelude}, which this check does not bound")
+        else:
+            decl = declarations(body)
+            if "animation" in decl:
+                findings.append(f"{path}: {prelude} uses the animation shorthand; write the longhands, which this check reads")
+            for name, value in decl.items():
+                if name.startswith("animation") and "!important" in value:
+                    findings.append(f"{path}: {prelude} marks {name} !important, which would outrank prefers-reduced-motion")
+            # A list of selectors styles each of them; a later rule wins, as in CSS.
+            for selector in prelude.split(","):
+                classes.setdefault(selector.strip(), {}).update(decl)
+    animated = {
+        s: {k: squeeze(v) for k, v in d.items() if k.startswith("animation")}
+        for s, d in classes.items()
+        if d.get("animation-name", "none") != "none" or "animation" in d
+    }
+    if not animated:
+        findings.append(f"{path}: no animated rule found; the check would hold over nothing")
+    for selector, decl in animated.items():
+        if selector not in resting:
+            findings.append(f"{path}: {selector} keeps moving under prefers-reduced-motion")
+        count = decl.get("animation-iteration-count", "1")
+        if count == "infinite":
+            findings.append(f"{path}: {selector} repeats without end")
+            continue
+        try:
+            stop = seconds(decl.get("animation-delay", "0s")) + seconds(decl.get("animation-duration", "0s")) * float(count)
+        except ValueError as error:
+            findings.append(f"{path}: {selector}: {error}")
+            continue
+        if stop > LIMIT:
+            findings.append(f"{path}: {selector} ends after {stop:.2f} s, beyond {LIMIT:.0f} s")
+    used = {d.get("animation-name") for d in animated.values()}
+    return animated, resting & set(animated), {k: v for k, v in keyframes.items() if k in used}
+
+
 try:
-    master_css = "".join(el.text or "" for el in trees[MASTER].getroot().iter(f"{SVG}style"))
-    rules = blocks(master_css)
-except ValueError as error:
-    print(f"banner: {MASTER}: {error}; nothing was checked", file=sys.stderr)
+    reference = timing(MASTER)
+    served = {path: timing(path) for path in SERVED}
+except (ValueError, IndexError) as error:
+    print(f"banner: {error}; nothing was checked", file=sys.stderr)
     sys.exit(2)
-classes, resting = {}, set()
-for prelude, body in rules:
-    if prelude.startswith("@media") and "prefers-reduced-motion: reduce" in prelude:
-        for inner, inner_body in blocks(body):
-            if declarations(inner_body).get("animation", "").split()[:1] == ["none"]:
-                resting.update(s.strip() for s in inner.split(","))
-    elif not prelude.startswith("@"):
-        decl = declarations(body)
-        if "animation" in decl:
-            findings.append(f"{MASTER}: {prelude} uses the animation shorthand; write the longhands, which this check reads")
-        # A list of selectors styles each of them; a later rule wins, as in CSS.
-        for selector in prelude.split(","):
-            classes.setdefault(selector.strip(), {}).update(decl)
-animated = {s: d for s, d in classes.items() if d.get("animation-name", "none") != "none"}
-if not animated:
-    findings.append(f"{MASTER}: no animated rule found; the check would hold over nothing")
-for selector, decl in animated.items():
-    if selector not in resting:
-        findings.append(f"{MASTER}: {selector} keeps moving under prefers-reduced-motion")
-    count = decl.get("animation-iteration-count", "1")
-    if count == "infinite":
-        findings.append(f"{MASTER}: {selector} repeats without end")
-        continue
-    try:
-        end = (seconds(decl.get("animation-delay", "0s")) + seconds(decl.get("animation-duration", "0s"))) * float(count)
-    except ValueError as error:
-        findings.append(f"{MASTER}: {selector}: {error}")
-        continue
-    if end > LIMIT:
-        findings.append(f"{MASTER}: {selector} ends after {end:.2f} s, beyond {LIMIT:.0f} s")
-for path in SERVED:
-    served_css = "".join(el.text or "" for el in trees[path].getroot().iter(f"{SVG}style"))
-    for selector in animated:
-        if selector + "{" not in served_css.replace(" {", "{"):
-            findings.append(f"{path}: the animated rule {selector} of the master is missing; render again")
+animated = reference[0]
+# A served banner is rendered from the master: the same animated rules with the
+# same values, the same resting set and the same keyframes, or it is stale.
+for path, (served_animated, served_resting, served_keyframes) in served.items():
+    for what, mine, theirs in (
+        ("animated rules", served_animated, reference[0]),
+        ("selectors resting under reduced motion", served_resting, reference[1]),
+        ("keyframes", served_keyframes, reference[2]),
+    ):
+        if mine != theirs:
+            findings.append(f"{path}: its {what} differ from those of {MASTER}; render again")
 
 title = (trees[MASTER].getroot().find(f"{SVG}title").text or "").strip()
 alts = [html.unescape(m) for m in re.findall(r'<img src="docs/social_preview_light\.png" alt="([^"]*)"', readme)]
@@ -256,7 +306,7 @@ for finding in findings:
 if findings:
     print(f"banner: {len(findings)} finding(s)", file=sys.stderr)
     sys.exit(1)
-print(f"banner: {len(SERVED)} banners and {len(BADGES)} badges are self-contained, {len(animated)} animated rules end within {LIMIT:.0f} s and rest under reduced motion")
+print(f"banner: {len(SERVED)} banners and {len(BADGES)} badges are self-contained; in the master and in each banner {len(animated)} animated rules end within {LIMIT:.0f} s, rest under reduced motion and match")
 PYEOF
     local rc=$?
     case $rc in
