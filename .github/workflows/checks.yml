@@ -53,3 +53,18 @@ jobs:
 
       - name: Check that no file keeps text of the project template
         run: tools/check.sh setup
+
+  banner:
+    name: Banner and badges
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # The served SVGs are rendered on a workstation by docs/render.sh, which
+      # needs macOS; this job checks what was committed.
+      - name: Check that the banner and the badges are self-contained and their motion is bounded
+        run: tools/check.sh banner
