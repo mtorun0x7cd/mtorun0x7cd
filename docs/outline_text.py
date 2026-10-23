@@ -48,7 +48,7 @@ def die(msg):
 
 
 def q(tag):
-    return f"{{{SVG_NS}}}{tag}"
+    return "{" + SVG_NS + "}" + tag
 
 
 def num(v):
