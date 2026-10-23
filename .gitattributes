@@ -1,10 +1,18 @@
-# Let Git detect text vs. binary and normalize line endings on commit.
+# SPDX-FileCopyrightText: 2026 Mert Torun
+# SPDX-License-Identifier: MIT
+
+# Let Git detect text vs. binary and normalise line endings on commit.
 * text=auto eol=lf
 
 # Documentation and tooling dotfiles.
 *.md           text eol=lf
-*.svg          text eol=lf
 *.yml          text eol=lf
+*.toml         text eol=lf
+*.jsonc        text eol=lf
+*.sh           text eol=lf
+*.py           text eol=lf
+*.svg          text eol=lf
+*.txt          text eol=lf
 .editorconfig  text eol=lf
 .gitignore     text eol=lf
 .gitattributes text eol=lf
@@ -12,6 +20,9 @@
 # Binary assets.
 *.png  binary
 
-# The opt-in hook is tooling, not the content of this repository, so it is left
-# out of the language statistics.
-.githooks/pre-commit -linguist-detectable
+# The banner, the badges and the scripts that render them are documentation;
+# the check script and the hook are tooling of the repository. None of them
+# counts as its code.
+docs/**       linguist-documentation
+tools/**      -linguist-detectable
+.githooks/*   -linguist-detectable

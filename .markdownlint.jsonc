@@ -1,5 +1,12 @@
+// SPDX-FileCopyrightText: 2026 Mert Torun
+// SPDX-License-Identifier: MIT
+//
+// Markdown rules of this repository. Long lines are allowed, because a
+// paragraph is one line. HTML is allowed, because the README needs it for the
+// banner and a <details> block. The README opens with its licence comment and
+// the banner, so its first line is not a heading. A heading may repeat under a
+// different parent.
 {
-  // Repository Markdown house style (mirrors the author's global markdownlint config).
   "default": true,
   "MD013": false,
   "MD033": false,

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Mert Torun
+# SPDX-License-Identifier: MIT
+
 root = true
 
 [*]
@@ -8,7 +11,7 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 4
 
-[*.{yml,yaml,json,jsonc}]
+[*.{yml,yaml,json,jsonc,cff,toml}]
 indent_size = 2
 
 [*.md]

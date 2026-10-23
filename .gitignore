@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Mert Torun
+# SPDX-License-Identifier: MIT
+
 # Build artifacts are isolated under .tmp.nosync/ (the .nosync suffix keeps iCloud
 # from syncing them) and are never committed.
 .tmp.nosync/
@@ -12,3 +15,7 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+*~
+
+# Python bytecode of the render scripts under docs/.
+__pycache__/

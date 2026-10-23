@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Mert Torun
+# SPDX-License-Identifier: MIT
+
 title = "mtorun0x7cd repository secret-scan policy"
 
 # Baseline: gitleaks' default rule set.
