@@ -129,3 +129,4 @@ mtorun0x7cd · Research & Development
 - **LinkedIn**: [linkedin.com/in/mtorun0x7cd](https://www.linkedin.com/in/mtorun0x7cd)
 - **ORCID**: [orcid.org/0009-0003-7932-9043](https://orcid.org/0009-0003-7932-9043)
 - **GitHub**: [github.com/mtorun0x7cd](https://github.com/mtorun0x7cd)
+- **Reddit**: [reddit.com/user/MTORUN0X7CD](https://www.reddit.com/user/MTORUN0X7CD)
