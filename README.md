@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/social_preview_dark.png" />
     <source media="(prefers-color-scheme: light)" srcset="docs/social_preview_light.png" />
-    <img src="docs/social_preview_light.png" alt="" width="880" />
+    <img src="docs/social_preview_light.png" alt="A terminal window of mtorun0x7cd running zsh. The command whoami prints Mert Torun, M.Sc.; cat focus.txt prints Verification of Safety-Critical Systems and Information Security; ls works/ lists working-paper, masters-thesis and bachelors-thesis; a cursor waits at the next prompt. Below the window, two badges read Research &amp; Development and @mtorun0x7cd." width="880" />
   </picture>
 </p>
 
