@@ -5,12 +5,29 @@
 # Scan staged changes for secrets before each commit.
 # Enable in a clone with:  git config core.hooksPath .githooks
 # Requires gitleaks (https://github.com/gitleaks/gitleaks).
+#
+# Exit: 0 nothing found / 1 a possible secret / 2 gitleaks missing or failing.
+# A missing scanner refuses the commit rather than passing it unscanned; set
+# ALLOW_MISSING_GITLEAKS=1 for one commit on a machine without it. gitleaks
+# reports a find with its own exit code 9, so any other failure is told apart
+# as a tool error.
 
-if command -v gitleaks >/dev/null 2>&1; then
-    gitleaks protect --staged --redact --no-banner || {
-        echo "gitleaks: staged changes contain a potential secret; commit aborted." >&2
-        exit 1
-    }
-else
-    echo "gitleaks not installed; skipping secret scan." >&2
+if ! command -v gitleaks >/dev/null 2>&1; then
+    if [ "${ALLOW_MISSING_GITLEAKS:-0}" = "1" ]; then
+        echo "gitleaks not installed; the secret scan is skipped (ALLOW_MISSING_GITLEAKS=1)." >&2
+        exit 0
+    fi
+    echo "gitleaks not installed; nothing was scanned, so the commit is refused." >&2
+    echo "Install it, or set ALLOW_MISSING_GITLEAKS=1 for this one commit." >&2
+    exit 2
 fi
+
+gitleaks git --staged --redact --no-banner --exit-code 9
+rc=$?
+case $rc in
+    0) exit 0 ;;
+    9) echo "gitleaks: staged changes contain a potential secret; commit aborted." >&2
+       exit 1 ;;
+    *) echo "gitleaks failed with exit code $rc; nothing was scanned, so the commit is refused." >&2
+       exit 2 ;;
+esac
