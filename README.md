@@ -19,7 +19,7 @@ SPDX-License-Identifier: MIT
 
 I work on the verification of safety-critical systems and on information security (M.Sc. in Computer Science & Engineering, TH Köln) and have published a refereed paper setting out a verification methodology for retrofitted anti-skid systems in European public transport. My work concerns the conditions under which a system can be trusted: the verification and validation of safety-critical systems, identity and access management, the hardening of enterprise infrastructure toward Zero Trust, and cryptographic architectures that make the integrity and authenticity of digital artifacts provable. I read these problems through the established assurance literature (functional-safety, software-verification, and security-evaluation standards), treating their methods as a shared vocabulary rather than a checklist. The orienting question across these domains is the same: under what conditions a system's claimed properties can be demonstrated rather than asserted.
 
-A second commitment runs through this work: that engineering claims should be reproducible and independently checkable. I operate self-hosted, privacy-respecting infrastructure end to end and cryptographically sign the commits and tags in the repositories under this account, my email and the documents I issue. I treat reproducibility as a property of the engineering itself, and self-hosting as its consequence: the provenance and integrity of an artifact are only as trustworthy as the chain that produced and serves it.
+A second commitment runs through this work: that engineering claims should be reproducible and independently checkable. I operate self-hosted, privacy-respecting infrastructure end to end and cryptographically sign the commits and tags I push to the repositories under this account, my email and the documents I issue. I treat reproducibility as a property of the engineering itself, and self-hosting as its consequence: the provenance and integrity of an artifact are only as trustworthy as the chain that produced and serves it.
 
 The repositories below are work under this account, together with the upstream extension I contribute to: the repositories of the works listed under Publications, the conventions the other projects are built to, and archives of completed academic and engineering work, most of them student team projects, among them web platforms, a multi-tier Java desktop application, humanoid robotics, and cryptographic education. The archived projects are preserved as records rather than maintained as living tools, documented so that their methods and results remain legible after the work has closed.
 
@@ -62,7 +62,7 @@ All three are open access and listed with their DOIs and URNs on my [ORCID recor
 
 ## Cryptographic Verification & Security
 
-The documents I issue, my email, and the commits and tags in the repositories under this account are cryptographically signed, so a recipient can check their integrity and authenticity. Two independent mechanisms are used, each verifiable on its own.
+The documents I issue, my email, and the commits and tags I push to the repositories under this account are cryptographically signed, so a recipient can check their integrity and authenticity. Two independent mechanisms are used, each verifiable on its own.
 
 **Documents & email**: official PDF documents and email are signed with an S/MIME certificate. A document signature is detached CMS (RFC 5652): it travels beside the document as `DOCUMENT.p7s`, never inside it, so a PDF reader shows no signature and none is expected. Checked offline with `openssl cms -verify -binary -inform DER -content DOCUMENT -in DOCUMENT.p7s -purpose smimesign -CAfile chain.pem`.
 
@@ -75,7 +75,7 @@ The documents I issue, my email, and the commits and tags in the repositories un
     11:BC:CF:B3:93:93:06:17:E5:95:87:8A:00:B3:82:43:AC:76:13:00:3E:3A:76:0E:98:B2:AA:05:BF:AD:55:A5
     ```
 
-**Code**: commits and tags in the repositories under this account are signed with an SSH key; GitHub renders these as **Verified**.
+**Code**: the commits and tags I push to the repositories under this account are signed with an SSH key; GitHub renders these as **Verified**. A change merged on github.com itself carries GitHub's own signature instead, and a fork under this account keeps the commits of its upstream authors.
 
 - **Signing-key fingerprint**: the Ed25519 signing key is published at [`/users/mtorun0x7cd/ssh_signing_keys`](https://api.github.com/users/mtorun0x7cd/ssh_signing_keys); confirm it against its SHA-256 fingerprint:
 
@@ -83,7 +83,7 @@ The documents I issue, my email, and the commits and tags in the repositories un
     SHA256:h0XIy0K+hRkQ921LjtoKu/jSPvvlP0r4BiAMuyEPIrI
     ```
 
-- **Verify**: in a clone of any repository under this account, with `curl`, `jq` and Git, which checks SSH signatures since 2.34. The second command prints the fingerprint above; the third answers `Good "git" signature` and ends with 0, or ends with 1 for a commit the key did not sign. `verify-tag` checks a release tag the same way.
+- **Verify**: in a clone of this repository or of any repository of this account listed above, with `curl`, `jq` and Git, which checks SSH signatures since 2.34. The second command prints the fingerprint above; the third answers `Good "git" signature` and ends with 0 for a commit I pushed, or ends with 1 for a commit the key did not sign, such as a change merged on github.com. `verify-tag` checks a release tag the same way.
 
     ```bash
     curl -s https://api.github.com/users/mtorun0x7cd/ssh_signing_keys | jq -r '"* " + .[].key' > allowed_signers

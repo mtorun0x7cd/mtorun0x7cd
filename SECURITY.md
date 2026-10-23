@@ -17,7 +17,7 @@ Use GitHub's private vulnerability reporting (the tab Security, then Report a vu
 
 ## What is not a vulnerability
 
-Compiled binaries, installers and release archives carry no signature, as stated under Signed artifacts; their lack of one is not a vulnerability. Neither is an unsigned commit in a repository under another account, nor a signature that fails to verify because the document was changed after signing: that is the check doing its work.
+Compiled binaries, installers and release archives carry no signature, as stated under Signed artifacts; their lack of one is not a vulnerability. Neither is an unsigned commit in a repository under another account, an upstream commit in a fork under this account, or a commit merged on github.com that carries GitHub's own signature, nor is a signature that fails to verify because the document was changed after signing: that is the check doing its work.
 
 ## What to expect
 
@@ -25,6 +25,6 @@ Reports are read. A reply or a fix is not guaranteed.
 
 ## Signed artifacts
 
-Two independent mechanisms are used. Commits and tags in the repositories under this account are signed with an SSH key, which GitHub renders as Verified. Documents issued by mtorun0x7cd and email are signed with an S/MIME certificate. Compiled binaries, installers and release archives are not signed (this is not code signing), and commits in repositories under other accounts are not signed.
+Two independent mechanisms are used. The commits and tags its owner pushes to the repositories under this account are signed with an SSH key, which GitHub renders as Verified; a change merged on github.com carries GitHub's own signature instead. Documents issued by mtorun0x7cd and email are signed with an S/MIME certificate. Compiled binaries, installers and release archives are not signed (this is not code signing), and commits in repositories under other accounts are not signed.
 
 The SSH signing key is published at <https://api.github.com/users/mtorun0x7cd/ssh_signing_keys>; the S/MIME certificate is supplied on request (see How to report). Confirm both against the SHA-256 fingerprints in the profile README before trusting them. Document signatures are detached CMS (RFC 5652): the signature travels beside the document as `DOCUMENT.p7s`, never inside it, and is checked with `openssl cms -verify -binary -inform DER -content DOCUMENT -in DOCUMENT.p7s -purpose smimesign -CAfile chain.pem`. `chain.pem` is the issuer's chain in PEM, the root D-Trust SBR Root CA 1 2022 and the intermediate D-Trust SBR CA 1-22-1 2022; the profile README says how to obtain and check it, and how to check a signature after the certificate has expired.
