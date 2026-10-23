@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2026 Mert Torun
+# SPDX-License-Identifier: MIT
+
+# The Sponsor button of every repository: GitHub Sponsors and Buy Me a Coffee.
+# GitHub shows it once Sponsorships is on in the settings of the repository.
 github: [mtorun0x7cd]
 buy_me_a_coffee: mtorun0x7cd
+# The support page gathers both; the line is enabled once the page is online.
 # custom: ["https://mtorun0x7cd.com/support"]

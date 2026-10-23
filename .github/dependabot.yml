@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Mert Torun
+# SPDX-License-Identifier: MIT
+
+# The github-actions block updates the pinned actions of the workflows. This
+# repository carries no package ecosystem besides them, so it is the only block.
 version: 2
 updates:
   - package-ecosystem: github-actions
