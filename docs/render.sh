@@ -2,8 +2,8 @@
 # SPDX-FileCopyrightText: 2026 Mert Torun
 # SPDX-License-Identifier: MIT
 #
-# Reproduce this repository's banner, its PNG fallbacks and the social card from
-# docs/social_preview.svg.
+# Reproduce this repository's banner, its PNG fallbacks, the social card and the
+# badges from docs/social_preview.svg and docs/badges.py.
 #
 # The master SVG is theme-adaptive through prefers-color-scheme, but GitHub picks
 # a README image by *its* page theme (via <picture>), not by the SVG's internal
@@ -26,6 +26,9 @@
 # same geometry. A PNG cannot move, so it shows the final state of the session:
 # the copy librsvg reads carries one more rule that switches every animation off,
 # and without animation each element of the master is in its final state.
+#
+# The badges of the README are written by docs/badges.py and outlined the same
+# way, into docs/badges/.
 #
 # Served files are committed because GitHub serves the raw files with no build step;
 # this script is their recorded, reproducible source. Intermediates stay in
@@ -84,6 +87,17 @@ for variant in light dark; do
         "$work/hero_$variant.svg" "$root/docs/social_preview_$variant.svg" "$mono_dir" "$sans_dir"
 done
 
+mkdir -p "$root/docs/badges"
+badge_list=$(PYTHONDONTWRITEBYTECODE=1 "$FONTTOOLS_PYTHON" "$root/docs/badges.py" "$work")
+badges=()
+while IFS= read -r name; do
+    badges+=("$name")
+done <<<"$badge_list"
+for name in "${badges[@]}"; do
+    PYTHONDONTWRITEBYTECODE=1 "$FONTTOOLS_PYTHON" "$root/docs/outline_text.py" \
+        "$work/badge_$name.svg" "$root/docs/badges/$name.svg" "$mono_dir" "$sans_dir" docs/badges.py
+done
+
 render() { # <variant> <out.png>; 2x, transparent, the final state
     local still="$work/still_$1.svg" svg rule='* { animation: none !important; }'
     svg=$(<"$root/docs/social_preview_$1.svg")
@@ -107,4 +121,4 @@ for f in social_preview_light social_preview_dark social_card; do
     magick "$root/docs/$f.png" -strip -define png:exclude-chunks=date,time "$root/docs/$f.png"
 done
 
-echo "rendered: docs/social_preview_light.svg docs/social_preview_dark.svg docs/social_preview_light.png docs/social_preview_dark.png docs/social_card.png"
+echo "rendered: docs/social_preview_light.svg docs/social_preview_dark.svg docs/social_preview_light.png docs/social_preview_dark.png docs/social_card.png, and ${#badges[@]} badges under docs/badges/"

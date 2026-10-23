@@ -12,10 +12,10 @@ precedence = "override"
 SPDX-FileCopyrightText = "2026 Mert Torun"
 SPDX-License-Identifier = "MIT"
 
-# The banner, its PNG fallbacks and the social card, rendered by
-# docs/render.sh from docs/social_preview.svg.
+# The banner, its PNG fallbacks, the social card and the badges, rendered by
+# docs/render.sh from docs/social_preview.svg and docs/badges.py.
 [[annotations]]
-path = ["docs/*.png", "docs/social_preview_light.svg", "docs/social_preview_dark.svg"]
+path = ["docs/*.png", "docs/social_preview_light.svg", "docs/social_preview_dark.svg", "docs/badges/*.svg"]
 precedence = "override"
 SPDX-FileCopyrightText = "2026 Mert Torun"
 SPDX-License-Identifier = "MIT"
