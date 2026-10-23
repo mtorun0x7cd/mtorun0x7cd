@@ -15,7 +15,9 @@ SPDX-License-Identifier: MIT
 
 **Verification of Safety-Critical Systems · Information Security** <!-- markdownlint-disable-line MD036 -->
 
-My work concerns the conditions under which a system can be trusted: the verification and validation of safety-critical systems, the hardening of enterprise infrastructure, and the construction of cryptographic architectures that establish the integrity and authenticity of digital artifacts. I hold an M.Sc. in Computer Science & Engineering from TH Köln and read these problems through the established assurance literature (functional-safety, software-verification, and security-evaluation standards), treating their methods as a shared vocabulary rather than a checklist. The orienting question across these domains is the same: under what conditions a system's claimed properties can be demonstrated rather than asserted.
+[![ORCID: 0009-0003-7932-9043](docs/badges/orcid.svg)](https://orcid.org/0009-0003-7932-9043) [![DOI: 10.57684/COS-1494](docs/badges/doi.svg)](https://doi.org/10.57684/COS-1494) [![LinkedIn: mtorun0x7cd](docs/badges/linkedin.svg)](https://www.linkedin.com/in/mtorun0x7cd)
+
+I work on the verification of safety-critical systems and on information security (M.Sc. in Computer Science & Engineering, TH Köln) and have published a refereed paper setting out a verification methodology for retrofitted anti-skid systems in European public transport. My work concerns the conditions under which a system can be trusted: the verification and validation of safety-critical systems, identity and access management, the hardening of enterprise infrastructure toward Zero Trust, and cryptographic architectures that make the integrity and authenticity of digital artifacts provable. I read these problems through the established assurance literature (functional-safety, software-verification, and security-evaluation standards), treating their methods as a shared vocabulary rather than a checklist. The orienting question across these domains is the same: under what conditions a system's claimed properties can be demonstrated rather than asserted.
 
 A second commitment runs through this work: that engineering claims should be reproducible and independently checkable. I operate self-hosted, privacy-respecting infrastructure end to end and cryptographically sign the commits and tags in the repositories under this account, my email and the documents I issue. I treat reproducibility as a property of the engineering itself, and self-hosting as its consequence: the provenance and integrity of an artifact are only as trustworthy as the chain that produced and serves it.
 
@@ -25,19 +27,32 @@ The repositories below are work under this account, together with the upstream e
 
 ## Publications
 
-- **Ensuring Functional Equivalence in Retrofitted Anti-Skid Systems for European Public Transportation: A Hybrid Two-Layer Verification Methodology.** Working Paper, *Kölner Beiträge zur technischen Informatik*, 2/2026. [https://doi.org/10.57684/COS-1494](https://doi.org/10.57684/COS-1494)
-- **Design and Implementation of a Modular Architecture for the Transparent Integration of Containerized Execution Environments for Heterogeneous Open-Source Binaries in OneWare Studio.** Master's thesis, Technische Hochschule Köln, 2026. [https://doi.org/10.57683/EPUB-3597](https://doi.org/10.57683/EPUB-3597)
-- **Password- / Keyless authentication.** Bachelor's thesis, Technische Hochschule Köln, 2021, published 2026. [https://doi.org/10.57683/EPUB-3598](https://doi.org/10.57683/EPUB-3598)
+- **Ensuring Functional Equivalence in Retrofitted Anti-Skid Systems for European Public Transportation: A Hybrid Two-Layer Verification Methodology.** Working Paper, refereed, *Kölner Beiträge zur technischen Informatik*, 2/2026. [https://doi.org/10.57684/COS-1494](https://doi.org/10.57684/COS-1494) · URN [urn:nbn:de:hbz:832-cos4-14942](https://nbn-resolving.org/urn:nbn:de:hbz:832-cos4-14942) · CC BY-NC-ND 4.0
+- **Design and Implementation of a Modular Architecture for the Transparent Integration of Containerized Execution Environments for Heterogeneous Open-Source Binaries in OneWare Studio.** Master's thesis, Technische Hochschule Köln, 2026. [https://doi.org/10.57683/EPUB-3597](https://doi.org/10.57683/EPUB-3597) · URN [urn:nbn:de:hbz:832-epub4-35974](https://nbn-resolving.org/urn:nbn:de:hbz:832-epub4-35974) · CC BY 4.0
+- **Password- / Keyless authentication.** Bachelor's thesis, Technische Hochschule Köln, 2021, published 2026. [https://doi.org/10.57683/EPUB-3598](https://doi.org/10.57683/EPUB-3598) · URN [urn:nbn:de:hbz:832-epub4-35985](https://nbn-resolving.org/urn:nbn:de:hbz:832-epub4-35985) · CC BY 4.0
+
+All three are open access and listed with their DOIs and URNs on my [ORCID record](https://orcid.org/0009-0003-7932-9043).
 
 ---
 
 ## Repositories
 
+### Published works
+
 - **[anti-skid-verification](https://github.com/mtorun0x7cd/anti-skid-verification)**: two-layer functional-equivalence verification for safety-critical FPGA rail retrofits; the repository of the paper listed under Publications.
 - **[thesis-fentwums-container-extension](https://github.com/mtorun0x7cd/thesis-fentwums-container-extension)**: the repository of the Master's thesis listed under Publications, with its LaTeX sources, the version of record and the cross-platform evaluation apparatus for the container extension below, benchmarking synthesis, place-and-route and simulation across iCE40 and ECP5 with the upstream sources pinned as submodules.
 - **[raven-one-simulink](https://github.com/mtorun0x7cd/raven-one-simulink)**: educational cryptographic simulator tracing every RSA intermediate step, with a from-scratch MD5 engine (RFC 8017 / RFC 1321); the practical part of the Bachelor's thesis listed under Publications.
+
+### Upstream contribution
+
 - **[FEntwumS.ContainerExtension](https://github.com/FEntwumS/FEntwumS.ContainerExtension)**: OneWare Studio plugin that runs FPGA toolchains such as GHDL, Yosys and nextpnr in containers (opt-in per tool, with a native-host fallback) and records the image digest of each run; the extension the Master's thesis evaluates, contributed to the FEntwumS project.
-- **[template](https://github.com/mtorun0x7cd/template)**: the project template the repositories here are built to, with the meta-file family, a tokenized README skeleton, and the CI, release and secret-scanning workflows.
+
+### Template
+
+- **[template](https://github.com/mtorun0x7cd/template)**: the project template the repositories here are built to, with the meta-file family, licensing information as REUSE defines it, a tokenized README skeleton, one script that runs every check, and the CI, release and secret-scanning workflows.
+
+### Archived student projects
+
 - **[component-lending-system](https://github.com/mtorun0x7cd/component-lending-system)**: PHP/MySQL lending platform for an embedded-systems lab, with tiered role-based access and stock recalculated by schema triggers.
 - **[coupon-management](https://github.com/mtorun0x7cd/coupon-management)**: Django platform run against two storage engines, with a reproducible PostgreSQL/MongoDB benchmark.
 - **[nao-ball-pickup](https://github.com/mtorun0x7cd/nao-ball-pickup)**: vision-guided ball detection and head tracking, with a fixed-pose pickup motion, for the SoftBank NAO 6 humanoid.
@@ -66,6 +81,14 @@ The documents I issue, my email, and the commits and tags in the repositories un
 
     ```text
     SHA256:h0XIy0K+hRkQ921LjtoKu/jSPvvlP0r4BiAMuyEPIrI
+    ```
+
+- **Verify**: in a clone of any repository under this account, with `curl`, `jq` and Git, which checks SSH signatures since 2.34. The second command prints the fingerprint above; the third answers `Good "git" signature` and ends with 0, or ends with 1 for a commit the key did not sign. `verify-tag` checks a release tag the same way.
+
+    ```bash
+    curl -s https://api.github.com/users/mtorun0x7cd/ssh_signing_keys | jq -r '"* " + .[].key' > allowed_signers
+    ssh-keygen -lf allowed_signers
+    git -c gpg.ssh.allowedSignersFile=allowed_signers verify-commit HEAD
     ```
 
 ---
