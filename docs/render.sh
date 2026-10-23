@@ -21,9 +21,23 @@
 # shows as a*C + (1 - a) on white and a*C on black, hence a = 1 - (white - black)
 # and C = black / a.
 #
-# Served PNGs are committed because GitHub serves the raw files with no build step;
+# The README shows the banner as SVG, so that its cursor can blink. Each flattened
+# variant is also written self-contained by docs/outline_text.py: an SVG loaded as
+# an image cannot load fonts, so its text becomes glyph outlines, shaped with
+# HarfBuzz (hb-shape) and drawn with fontTools, and its CSS custom properties are
+# resolved to literal colours. The outlines use JetBrains Mono NL and Fira Sans
+# (SIL Open Font License 1.1, which exempts documents made with the fonts) instead
+# of the master's SF fonts, whose licence does not allow it; the banner's typeface
+# therefore differs from the PNGs. The cursor's blink, and its stillness under
+# prefers-reduced-motion, are CSS in the master and pass through unchanged.
+#
+# Served files are committed because GitHub serves the raw files with no build step;
 # this script is their recorded, reproducible source. Intermediates stay in
-# .tmp.nosync/. Requires: macOS (qlmanage), node, ImageMagick (magick).
+# .tmp.nosync/render, or in RENDER_WORK where that is set. Requires: macOS
+# (qlmanage), node, ImageMagick (magick), hb-shape, and a Python with fontTools
+# (FONTTOOLS_PYTHON; by default python3 if it imports fontTools, else the one
+# Homebrew's ocrmypdf bundles). The fonts are read from MONO_FONT_DIR and
+# SANS_FONT_DIR, both ~/Library/Fonts by default.
 set -Eeuo pipefail
 
 _on_err() { local ec=$? line=${1:-?} cmd=${2:-?}; echo "render.sh: error on line ${line} (exit ${ec}): ${cmd}" >&2; exit "${ec}"; }
@@ -31,12 +45,18 @@ trap '_on_err "${LINENO}" "${BASH_COMMAND}"' ERR
 
 cd "$(dirname "$0")/.."
 root=$(pwd)
-work="$root/.tmp.nosync/render"
+work=${RENDER_WORK:-"$root/.tmp.nosync/render"}
 mkdir -p "$work"
 
-for bin in node magick qlmanage; do
+for bin in node magick qlmanage hb-shape; do
     command -v "$bin" >/dev/null || { echo "missing dependency: $bin" >&2; exit 1; }
 done
+if [[ -z ${FONTTOOLS_PYTHON:-} ]]; then
+    for candidate in python3 "$(brew --prefix ocrmypdf 2>/dev/null || true)/libexec/bin/python"; do
+        if "$candidate" -c 'import fontTools' 2>/dev/null; then FONTTOOLS_PYTHON=$candidate; break; fi
+    done
+fi
+[[ -n ${FONTTOOLS_PYTHON:-} ]] || { echo "missing dependency: a Python with fontTools (set FONTTOOLS_PYTHON)" >&2; exit 1; }
 
 # Promote the prefers-color-scheme:dark palette to base for the dark variant and
 # drop the media block for the light variant, so each SVG is palette-deterministic
@@ -73,6 +93,12 @@ console.log(`${2 * w} ${2 * h} ${2 * pad}`);
 NODE
 )
 read -r size height offset <<<"$dims"
+
+for variant in light dark; do
+    PYTHONDONTWRITEBYTECODE=1 "$FONTTOOLS_PYTHON" "$root/docs/outline_text.py" \
+        "$work/hero_$variant.svg" "$root/docs/social_preview_$variant.svg" \
+        "${MONO_FONT_DIR:-$HOME/Library/Fonts}" "${SANS_FONT_DIR:-$HOME/Library/Fonts}"
+done
 
 thumb() { # <in.svg> <backdrop level 0|1> <out.png>; 2x, cropped to the artwork, opaque
     local log strip levels lo hi
@@ -119,4 +145,4 @@ for f in social_preview_light social_preview_dark social_card; do
     magick "$root/docs/$f.png" -strip -define png:exclude-chunks=date,time "$root/docs/$f.png"
 done
 
-echo "rendered: docs/social_preview_light.png docs/social_preview_dark.png docs/social_card.png"
+echo "rendered: docs/social_preview_light.svg docs/social_preview_dark.svg docs/social_preview_light.png docs/social_preview_dark.png docs/social_card.png"

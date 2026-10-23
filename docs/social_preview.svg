@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+    <title>A terminal window of mtorun0x7cd running zsh. The command whoami prints Mert Torun, M.Sc.; cat focus.txt prints Verification of Safety-Critical Systems and Information Security; ls works/ lists working-paper, masters-thesis and bachelors-thesis; a cursor waits at the next prompt. Below the window, two badges read Research &amp; Development and @mtorun0x7cd.</title>
     <defs>
         <!-- Filter for glow effect around the terminal window -->
         <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
@@ -76,6 +77,19 @@
         .t-cursor {
             fill: var(--accent-color);
             fill-opacity: 0.85;
+            animation: cursor-blink 1s steps(1, end) infinite;
+        }
+        /* A terminal cursor: half a second on, half a second off, no fade */
+        @keyframes cursor-blink {
+            50% {
+                opacity: 0;
+            }
+        }
+        /* Under "reduce motion" the cursor stays, lit and still */
+        @media (prefers-reduced-motion: reduce) {
+            .t-cursor {
+                animation: none;
+            }
         }
         .text-badge-dev {
             fill: var(--accent-color);
