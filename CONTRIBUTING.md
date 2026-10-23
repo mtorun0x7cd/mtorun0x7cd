@@ -29,4 +29,4 @@ git config core.hooksPath .githooks
 
 ## Contact
 
-Mert Torun, M.Sc.: <info@mtorun0x7cd.com>
+Mert Torun, M.Sc.: <info@mtorun0x7cd.com> · <https://mtorun0x7cd.com>

@@ -15,7 +15,7 @@ SPDX-License-Identifier: MIT
 
 **Verification of Safety-Critical Systems · Information Security** <!-- markdownlint-disable-line MD036 -->
 
-[![ORCID: 0009-0003-7932-9043](docs/badges/orcid.svg)](https://orcid.org/0009-0003-7932-9043) [![DOI: 10.57684/COS-1494](docs/badges/doi.svg)](https://doi.org/10.57684/COS-1494) [![LinkedIn: mtorun0x7cd](docs/badges/linkedin.svg)](https://www.linkedin.com/in/mtorun0x7cd)
+[![Website: mtorun0x7cd.com](docs/badges/website.svg)](https://mtorun0x7cd.com) [![ORCID: 0009-0003-7932-9043](docs/badges/orcid.svg)](https://orcid.org/0009-0003-7932-9043) [![DOI: 10.57684/COS-1494](docs/badges/doi.svg)](https://doi.org/10.57684/COS-1494) [![LinkedIn: mtorun0x7cd](docs/badges/linkedin.svg)](https://www.linkedin.com/in/mtorun0x7cd)
 
 I work on the verification of safety-critical systems and on information security (M.Sc. in Computer Science & Engineering, TH Köln) and have published a refereed paper setting out a verification methodology for retrofitted anti-skid systems in European public transport. My work concerns the conditions under which a system can be trusted: the verification and validation of safety-critical systems, identity and access management, the hardening of enterprise infrastructure toward Zero Trust, and cryptographic architectures that make the integrity and authenticity of digital artifacts provable. I read these problems through the established assurance literature (functional-safety, software-verification, and security-evaluation standards), treating their methods as a shared vocabulary rather than a checklist. The orienting question across these domains is the same: under what conditions a system's claimed properties can be demonstrated rather than asserted.
 
@@ -125,6 +125,7 @@ If you find my work valuable, you can support it:
 **Mert Torun, M.Sc.**: Verification of Safety-Critical Systems · Information Security  
 mtorun0x7cd · Research & Development
 
+- **Website**: [mtorun0x7cd.com](https://mtorun0x7cd.com)
 - **Email**: [info@mtorun0x7cd.com](mailto:info@mtorun0x7cd.com)
 - **LinkedIn**: [linkedin.com/in/mtorun0x7cd](https://www.linkedin.com/in/mtorun0x7cd)
 - **ORCID**: [orcid.org/0009-0003-7932-9043](https://orcid.org/0009-0003-7932-9043)

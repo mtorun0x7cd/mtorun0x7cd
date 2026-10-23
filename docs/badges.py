@@ -12,7 +12,8 @@ the text into glyph outlines, and writes the result to docs/badges/<name>.svg.
 The badges are files of this repository, so the README loads nothing from a
 badge service and nothing counts who reads it.
 
-The values are the identifiers of the profile: the ORCID iD, the DOI of the
+The values are the identifiers of the profile: the website, which comes first
+as the one address that gathers the others, the ORCID iD, the DOI of the
 refereed paper and the LinkedIn handle. Each badge links to the page it names;
 the link stands in README.md.
 """
@@ -22,6 +23,7 @@ import sys
 from xml.sax.saxutils import escape
 
 BADGES = {
+    "website": ("Website", "mtorun0x7cd.com"),
     "orcid": ("ORCID", "0009-0003-7932-9043"),
     "doi": ("DOI", "10.57684/COS-1494"),
     "linkedin": ("LinkedIn", "mtorun0x7cd"),
