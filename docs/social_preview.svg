@@ -1,3 +1,7 @@
+<!--
+SPDX-FileCopyrightText: 2026 Mert Torun
+SPDX-License-Identifier: MIT
+-->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
     <title>A terminal window of mtorun0x7cd running zsh. The command whoami prints Mert Torun, M.Sc.; cat focus.txt prints Verification of Safety-Critical Systems and Information Security; ls works/ lists working-paper, masters-thesis and bachelors-thesis; a cursor waits at the next prompt. Below the window, two badges read Research &amp; Development and @mtorun0x7cd.</title>
     <defs>

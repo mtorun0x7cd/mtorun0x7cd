@@ -1,0 +1,21 @@
+version = 1
+
+# Licensing information, as REUSE 3.3 defines it, for the files that have no
+# room for an SPDX comment or keep their text free of one. Every other file
+# carries its own SPDX-FileCopyrightText and SPDX-License-Identifier lines, and
+# the licence text stands in LICENSES/. tools/check.sh reuse checks the whole.
+
+# The security policy and the contribution notes.
+[[annotations]]
+path = ["SECURITY.md", "CONTRIBUTING.md"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Mert Torun"
+SPDX-License-Identifier = "MIT"
+
+# The banner, its PNG fallbacks and the social card, rendered by
+# docs/render.sh from docs/social_preview.svg.
+[[annotations]]
+path = ["docs/*.png", "docs/social_preview_light.svg", "docs/social_preview_dark.svg"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Mert Torun"
+SPDX-License-Identifier = "MIT"
