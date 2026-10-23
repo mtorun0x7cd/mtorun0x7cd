@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/social_preview_dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="docs/social_preview_light.svg" />
-    <img src="docs/social_preview_light.png" alt="A terminal window of mtorun0x7cd running zsh. The command whoami prints Mert Torun, M.Sc.; cat focus.txt prints Verification of Safety-Critical Systems and Information Security; ls works/ lists working-paper, masters-thesis and bachelors-thesis; a cursor waits at the next prompt. Below the window, two badges read Research &amp; Development and @mtorun0x7cd." width="880" />
+    <img src="docs/social_preview_light.png" alt="A zsh session in a terminal window of 56 by 11 characters, at the prompt of the user mtorun0x7cd. whoami prints mtorun0x7cd; git config user.name prints Mert Torun; cat focus.txt prints Verification of Safety-Critical Systems and Information Security; ls works/ lists bachelors-thesis, masters-thesis and working-paper. A cursor rests at the next prompt. Below the window, two labels read Research &amp; Development and @mtorun0x7cd." width="880" />
   </picture>
 </p>
 
